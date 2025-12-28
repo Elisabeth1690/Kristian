@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(#fff0f3, #ffe6eb);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+
+.heart {
+    width: 160px;
+    height: 160px;
+    background: red;
+    position: relative;
+    transform: rotate(-45deg);
+    animation: pulseBlink 2.3s infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    width: 160px;
+    height: 160px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -80px;
+    left: 0;
+}
+
+.heart::after {
+    left: 80px;
+    top: 0;
+}
+
+.heart-text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin-top: -50px;
+      margin-right: -50px;
+    position: absolute;
+       z-index: 10;  
+    transform: rotate(45deg);
+    color: pink;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.2;
+    pointer-events: none;
+}
+
+/* Puls + blinking */
+@keyframes pulseBlink {
+    0% {
+        transform: rotate(-45deg) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: rotate(-45deg) scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: rotate(-45deg) scale(1);
+        opacity: 1;
+    }
+}
+
+
+@keyframes floatUp {
+    0% {
+        transform: rotate(-45deg) translateY(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: rotate(-45deg) translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+/* 📱 MOBIL */
+@media (max-width: 480px) {
+    .heart {
+        width: 120px;
+        height: 120px;
+    }
+
+    .heart::before,
+    .heart::after {
+        width: 120px;
+        height: 120px;
+    }
+
+    .heart::before {
+        top: -60px;
+    }
+
+    .heart::after {
+        left: 60px;
+    }
+
+    .heart-text {
+        font-size: 1rem;
+    }
+}
